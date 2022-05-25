@@ -55,7 +55,8 @@ describe 'contestants index page' do
     click_button "Add Contestant to Project"
 
     visit '/contestants'
-    
+
+
     within "#contestant-#{@erin.id}" do
       expect(page).to have_content("News Chic")
     end

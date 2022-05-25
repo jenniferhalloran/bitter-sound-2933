@@ -2,9 +2,7 @@
 <% @contestants.each do |contestant| %>
   <div id="contestant-<%=contestant.id %>">
     <p> <b>Name:</b> <%= contestant.name %> </p>
-    <p> <b>Projects:</b> <% contestant.projects.each do |project| %>
-    <%= project.name %> |
-    <% end %> </p>
+    <p> <b>Projects:</b> <%= contestant.all_projects.join(", ") %></p>
     <hr>
   </div>
 <% end %>

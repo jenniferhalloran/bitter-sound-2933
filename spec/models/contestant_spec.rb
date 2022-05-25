@@ -13,4 +13,12 @@ RSpec.describe Contestant, type: :model do
     it {should have_many :contestant_projects}
     it {should have_many(:projects).through(:contestant_projects)}
   end
+
+  describe 'instance methods' do
+    describe '.all_projects' do
+      it "returns the names of all projects the contestant is working on" do
+        
+      end
+    end
+  end
 end

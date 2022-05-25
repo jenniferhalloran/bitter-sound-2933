@@ -2,10 +2,14 @@
 <p><b> Material:</b> <%= @project.material %> </p>
 <p><b> Challenge Theme:</b> <%= @project.project_theme %>
 <p><b> Number of Contestants:</b> <%= @project.contestants_count %>
-<p><b> Average Contestant Experience:</b> <%= @project.avg_contestant_experience %>
+  <% if @project.avg_contestant_experience.nil? %>
+    <p><b> Average Contestant Experience:</b> Sorry, there were no contestants on this project! </p>
+  <% else %>
+    <p><b> Average Contestant Experience:</b> <%= @project.avg_contestant_experience %>
+  <% end %>
 <br> <br>
 <h3> Add a Contestant to this Project! </h3>
-<%= form_with url: "/projects/#{@project.id}", method: :get  do |form| %>
+<%= form_with url: "/projects/#{@project.id}/contestants", method: :post do |form| %>
   <%= form.label :add_contestant_id, "Contestant ID:" %>
   <%= form.text_field :add_contestant_id %> <br> <br>
   <%= form.submit "Add Contestant to Project" %>
